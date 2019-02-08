@@ -6,8 +6,13 @@ import { Provider } from 'react-redux'
 import App from './containers/App'
 // import store from './redux/store' 
 
-const rootReducer = {
-    
+const rootReducer = function temp(a = 1, action = {type:"TEST", payload:'111'}) {
+    switch (action.type) {
+        case "TEST":
+            return 0;
+        default:
+          return 0;
+      }
 }
 
 const store = createStore(rootReducer)
