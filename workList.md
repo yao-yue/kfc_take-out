@@ -6,3 +6,14 @@
 4. 思考action及state.
 5. 把静态基本页面构建出来,并实现跳转.
 6. 一些定位服务~~  待完善
+
+
+关于reducer的编写规则 参考  
+
+定义 action types
+编写 reducer
+跟这个 reducer 相关的 action creators
+
+项目上手需要解决的一些问题:  
+1. 关于移动端rem适配问题
+2. lazy-load 当滚动条滚动到该图片上方时才会去加载图片,可以更合理去加载资源
