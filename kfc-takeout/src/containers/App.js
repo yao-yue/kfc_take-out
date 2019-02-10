@@ -1,6 +1,7 @@
 import React from "react"
 import "./app.scss"
-import {Swiper, } from '../components/index'
+import Swiper from '../components/Swiper/Swiper'
+import Banner from '../components/Banner/Banner'
 
 
 
@@ -14,7 +15,7 @@ class App extends React.Component {
     return (
      <div className="app-wrapper">
      <Swiper />
-       最外层组件
+     <Banner />
      </div>
     );
   }
