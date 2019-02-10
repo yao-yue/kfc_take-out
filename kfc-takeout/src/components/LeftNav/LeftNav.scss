@@ -1,0 +1,26 @@
+.leftNav-wrapper {
+    list-style: none;
+    background-color: #f6f6f6;
+    width: 1.2rem;
+    li {
+        height: 1.64rem;
+        text-align: center;
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        img {
+            width: 0.8rem;
+            height: 0.8rem;
+        }
+        p {
+            font-size: 0.24rem;
+        }
+    }
+   
+}
+.active-nav {
+    background: url('../../assets/image/block_active.png');
+    color: #ffffff;
+}
