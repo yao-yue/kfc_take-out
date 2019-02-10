@@ -1,0 +1,49 @@
+.menu-wrapper {
+    position: relative;
+    .left-nav {
+        // float: left;
+        float: right;
+    }
+    .pruduct-list {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 7.5rem - 1.199999999rem;
+        // background-color: red;
+        float: right;
+        .product-title {
+            height: 0.5rem;
+            line-height: 0.5rem;
+            // text-align: center;
+            display: flex;
+            justify-content: center;
+            p{
+            font-size: 0.24rem;
+            color: #e02d3f;
+            }
+            span {
+                font-weight: bold;
+                transform: scale(1.6);
+                // transform: scaleX(2)
+            }
+            .sprit-1 {
+                color: #e02d3f;
+            }
+            .sprit-2 {
+                color: #e02d3f;
+            }
+            .sprit-3 {
+                color: #e02d3f;
+            }
+            .sprit-4 {
+                color: #e02d3f;
+            }
+            .sprit-5 {
+                color: #e02d3f;
+            }
+            .sprit-6 {
+                color: #e02d3f;
+            }
+        }
+    }
+}

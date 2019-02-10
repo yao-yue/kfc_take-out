@@ -2,7 +2,7 @@ import React from "react"
 import "./app.scss"
 import Swiper from '../components/Swiper/Swiper'
 import Banner from '../components/Banner/Banner'
-import LeftNav from '../components/LeftNav/LeftNav'
+import Menu from '../containers/Menu/Menu'
 
 
 
@@ -17,7 +17,7 @@ class App extends React.Component {
      <div className="app-wrapper">
      <Swiper />
      <Banner />
-     <LeftNav/>
+     <Menu/>
      </div>
     );
   }

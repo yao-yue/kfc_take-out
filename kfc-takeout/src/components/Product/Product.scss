@@ -1,0 +1,17 @@
+.product-wrapper {
+    height: 1.2rem;
+    position: relative;
+    overflow: hidden;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    margin: 0 .32rem .32rem;
+    padding: 0 .32rem 0 0;
+    background-color: #fff;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    border: 1px solid #e8e7e7;
+    box-shadow: 0.026667rem 0.053333rem 0.16rem 0.026667rem rgba(0,0,0,.06);
+    border-radius: .16rem;
+}
