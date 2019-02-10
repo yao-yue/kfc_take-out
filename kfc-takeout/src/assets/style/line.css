@@ -1,0 +1,29 @@
+.bLine {
+    position: relative;
+}
+.bLine::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    transform: scale(0.5);
+    transform-origin: 0 0;
+    border-bottom: 1px solid #a1a1a1;
+}
+
+.tLine {
+    position: relative;
+}
+.tLine::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    transform: scale(0.5);
+    transform-origin: 0 0;
+    border-top: 1px solid #a1a1a1;
+}
