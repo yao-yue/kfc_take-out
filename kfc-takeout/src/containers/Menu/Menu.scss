@@ -1,6 +1,22 @@
 .menu-wrapper {
+    overflow: hidden;
+    margin: 0;
+    bottom: 0;
     position: relative;
-    .pruduct-list {
+    // height: 100% !important;
+    height: 8.8rem;
+    background-color: red;
+    .left-nav {
+        // float: left;
+        list-style: none;
+        overflow: scroll;
+        background-color: #f6f6f6;
+        // width: 1.2rem;
+        width: 16%;
+        height: 100%;        
+    }
+    .pruduct-container {
+        height: 100%;
         position: absolute;
         top: 0;
         right: 0;
@@ -38,39 +54,45 @@
                 color: #d62f35;
             }
         }
-        .product-footer {
-            margin: 0 0.2rem;
-            font-size: 0.24rem;
-            .footer-tip {
-                span {
-                    margin-left: 0.1rem;
-                    display: inline-block;
-                    padding-bottom: 0.06rem;
-                }
-                .tip-content {
-                    font-size: 0.22rem;
-                    line-height: 0.28rem;
-                }
-            }
-            .footer-info {
-                margin-top: 0.2rem;
-                padding-top: 0.16rem;
-                .three-item {
-                    line-height: 0.22rem;
-                    padding:0 0.6rem 0.14rem;
-                    display: flex;
-                    justify-content: space-between;
-                    span:nth-of-type(2) {
+        .product-list {
+            height: 100%;
+            overflow: scroll;
+            
+            .product-footer {
+                margin: 0 0.2rem;
+                font-size: 0.24rem;
+                .footer-tip {
+                    span {
+                        margin-left: 0.1rem;
                         display: inline-block;
-                        padding:0  10%;
-                        border-left: 1px solid #a2a2a2;
-                        border-right: 1px solid #a2a2a2;
+                        padding-bottom: 0.06rem;
+                    }
+                    .tip-content {
+                        font-size: 0.22rem;
+                        line-height: 0.28rem;
                     }
                 }
-                .author-info, .author-say{
-                    text-align: center;
+                .footer-info {
+                    margin-top: 0.2rem;
+                    padding-top: 0.16rem;
+                    .three-item {
+                        line-height: 0.22rem;
+                        padding:0 0.6rem 0.14rem;
+                        display: flex;
+                        justify-content: space-between;
+                        span:nth-of-type(2) {
+                            display: inline-block;
+                            padding:0  10%;
+                            border-left: 1px solid #a2a2a2;
+                            border-right: 1px solid #a2a2a2;
+                        }
+                    }
+                    .author-info, .author-say{
+                        text-align: center;
+                    }
                 }
             }
         }
+        
     }
 }

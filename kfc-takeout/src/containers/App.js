@@ -17,7 +17,7 @@ class App extends React.Component {
      <div className="app-wrapper">
      <Swiper />
      <Banner />
-     <Menu/>
+     <Menu style={{height: '100%'}}/>
      </div>
     );
   }

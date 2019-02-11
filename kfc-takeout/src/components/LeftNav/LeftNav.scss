@@ -1,8 +1,4 @@
-.leftNav-wrapper {
-    list-style: none;
-    background-color: #f6f6f6;
-    // width: 1.2rem;
-    width: 16%;
+
     li {
         height: 1.64rem;
         // height: 21.867%;
@@ -20,8 +16,6 @@
             font-size: 0.24rem;
         }
     }
-   
-}
 .active-nav {
     background: url('../../assets/image/block_active.png') ;
     background-size: 100% 100%;
