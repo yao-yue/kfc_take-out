@@ -1,11 +1,8 @@
-as for a long time to no Do it, hah
-
-a big chicken humbage.
-
-some thing should to do, but you can't do tomorrow.
-
-# should do it one step by one step. This is important, you should't be lazy to it. Come on champion.
+### 技术栈：  react + antd + react-redux 
 
 
-开启超频模式， just do it！Double turbo. 
+正在加速coding中。。。
+
+项目预览： 
+![](https://user-gold-cdn.xitu.io/2019/2/11/168dbfed89a26a27?w=319&h=567&f=png&s=196990)
 
