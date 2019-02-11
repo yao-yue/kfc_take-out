@@ -20,29 +20,26 @@
             p{
             font-size: 0.24rem;
             color: #e02d3f;
+            margin-left: .13rem;
+            margin-right: .13rem;
             }
             span {
-                font-weight: bold;
-                transform: scale(1.6);
-                // transform: scaleX(2)
+                // transform:;
+                transform: skew(20deg) scale(1.4);
+                // font-weight: bold;
+                width: 0.2rem;
+                height: 0.4rem;
+                // width: 14px;
+                // height: 24px;
             }
-            .sprit-1 {
-                color: #e02d3f;
+            span:nth-of-type(1), span:nth-of-type(6) {
+                color: #efadb0;
             }
-            .sprit-2 {
-                color: #e02d3f;
+            span:nth-of-type(2), span:nth-of-type(5) {
+                color: #e26d71;
             }
-            .sprit-3 {
-                color: #e02d3f;
-            }
-            .sprit-4 {
-                color: #e02d3f;
-            }
-            .sprit-5 {
-                color: #e02d3f;
-            }
-            .sprit-6 {
-                color: #e02d3f;
+            span:nth-of-type(3), span:nth-of-type(4) {
+                color: #d62f35;
             }
         }
     }
