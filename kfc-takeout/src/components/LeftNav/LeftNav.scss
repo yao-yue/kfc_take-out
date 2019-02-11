@@ -1,9 +1,11 @@
 .leftNav-wrapper {
     list-style: none;
     background-color: #f6f6f6;
-    width: 1.2rem;
+    // width: 1.2rem;
+    width: 16%;
     li {
         height: 1.64rem;
+        // height: 21.867%;
         text-align: center;
         list-style: none;
         display: flex;
@@ -21,6 +23,7 @@
    
 }
 .active-nav {
-    background: url('../../assets/image/block_active.png');
+    background: url('../../assets/image/block_active.png') ;
+    background-size: 100% 100%;
     color: #ffffff;
 }
