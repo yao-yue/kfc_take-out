@@ -2,7 +2,9 @@
 
 .banner-container {
     width: 100%;
-    height: 1.46rem;
+    height: 1.56rem;
+    box-sizing: border-box;
+    padding-bottom: 0.1rem;
     display: flex;
     background-color: #ffffff;
     position: relative;
@@ -32,6 +34,7 @@
     height: 0.84rem;
     background-size: cover;
     display: block;
+    margin-bottom: 0.06rem;
 }
 .banner-item > span {
     line-height: 0.32rem;
