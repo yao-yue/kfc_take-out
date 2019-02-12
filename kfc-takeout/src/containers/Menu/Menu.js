@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import LeftNav from '../../components/LeftNav/LeftNav'
+import Scroll from '../../components/Scroll/Scroll'
 import Product from '../../components/Product/Product'
+import LazyLoad,{ forceCheck } from "react-lazyload";
 import { Icon } from 'antd'
 import './Menu.scss'
 import '../../assets/style/font.css'
@@ -9,16 +10,33 @@ import '../../assets/style/line.css'
 import leftList from './TempData';
 
 export default class Menu extends Component {
+    constructor() {
+        super()
+
+    }
     render() {
         return (
             <div className='menu-wrapper'>
-                <div className="left-nav">
-                    {
-                        leftList.map((item, index) => {
-                            return <LeftNav key={index} blockName={item.blockName} blockSrc={item.blockSrc} />
-                        })
-                    }
-                </div>
+                <Scroll refresh={this.state.refreshScroll}
+                    onTestRef={(el) => this.childRef = el}
+                    onScroll={() => { console.log('调用滚动函数及forceCheck'); forceCheck(); }}>
+                    <div className="left-nav">
+                        {
+                            leftList.map((item, index) => {
+                                return (
+                                    <li className={``} key={index} data-lkey={index}
+                                    onClick={(e) => {this.clickLeft(e)}}>
+                                    <LazyLoad height={200}>
+                                        <img src={item.blockSrc} alt={item.blockName}/>
+                                    </LazyLoad>
+                                        <p>{item.blockName}</p>
+                                    </li>
+
+                                )
+                            })
+                        }
+                    </div>
+                </Scroll>
                 <div className="pruduct-container">
                     <div className="product-title">
                         <span className="iconfont icon-xiegang"></span>

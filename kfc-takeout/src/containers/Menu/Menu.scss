@@ -13,7 +13,29 @@
         background-color: #f6f6f6;
         // width: 1.2rem;
         width: 16%;
-        height: 100%;        
+        height: 100%;   
+        .active-nav {
+            background: url('../../assets/image/block_active.png') ;
+            background-size: 100% 100%;
+            color: #ffffff;
+        } 
+        li {
+            height: 1.64rem;
+            // height: 21.867%;
+            text-align: center;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            img {
+                width: 0.8rem;
+                height: 0.8rem;
+            }
+            p {
+                font-size: 0.24rem;
+            }
+        }    
     }
     .pruduct-container {
         height: 100%;
