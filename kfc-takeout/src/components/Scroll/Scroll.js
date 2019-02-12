@@ -20,7 +20,7 @@ class Scroll extends React.Component {
       this.bScroll = new BScroll(this.scrollViewRef.current, {
         scrollX: this.props.direction === "horizontal",
         scrollY: this.props.direction === "vertical",
-        bounce: false,
+        // bounce: false,
         // 实时派发scroll事件
         probeType: 3,
         click: this.props.click
@@ -29,6 +29,7 @@ class Scroll extends React.Component {
       if (this.props.onScroll) {
         this.bScroll.on("scroll", (scroll) => {
           this.props.onScroll(scroll);
+          console.log(scroll)
         });
       }
       if(this.props.onClick) {

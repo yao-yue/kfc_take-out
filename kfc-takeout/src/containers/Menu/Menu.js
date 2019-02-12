@@ -11,27 +11,30 @@ import leftList from './TempData';
 import rightList from './TempData3'
 
 export default class Menu extends Component {
-    static blockTitleHeight = 60;
+    
     constructor() {
         super()
         this.leftRef = React.createRef();
         this.rightRef = React.createRef();
+        this.BLOCKTITLEHEIGHT = 60;
         this.state = {
             loading: true,
             // rankingList: [],
             leftCurrentIndex: 0, 
-            refreshScroll: false
+            refreshScroll: false,
+            currentBlockTitle: null,
         }
 
     }
     componentWillMount() {
         let windowHeight = document.body.clientHeight + 5;
+        let currentBlockTitle = leftList[0].blockName
         this.setState({
             windowHeight,
+            currentBlockTitle
         })
     }
     componentDidMount() {
-        console.log(rightList)
         //获取左侧导航栏的top信息
         let leftScrollYList = [];
         let initLeftTop = this.leftRef.current.childNodes[0].getBoundingClientRect().top
@@ -45,14 +48,13 @@ export default class Menu extends Component {
         let initRightTop = this.rightRef.current.childNodes[0].getBoundingClientRect().top
         console.log(initRightTop)
         for (let item of this.rightRef.current.childNodes) {
-                rightScrollYList.push(item.getBoundingClientRect().top - initRightTop + this.blockTitleHeight)
+                rightScrollYList.push(item.getBoundingClientRect().top - initRightTop + this.BLOCKTITLEHEIGHT)
         }
-            console.log('获取的右侧导航栏信息---------')
-            // console.log(this.rightRef.current.childNodes)
-        // let a = rightScrollYList.pop();
+        console.log('获取的右侧导航栏信息(处理后)---------')
         rightScrollYList = rightScrollYList.slice(0, -1)
+        rightScrollYList[0] = rightScrollYList[0] - this.BLOCKTITLEHEIGHT;
         console.log(rightScrollYList)
-        this.setState({ leftScrollYList,rightScrollYList })
+        this.setState({ leftScrollYList,rightScrollYList})
     }
     clickLeft(event) {
         event.preventDefault()
@@ -68,8 +70,10 @@ export default class Menu extends Component {
         console.log('----------')
         console.log(event.currentTarget.dataset.lkey);
         let leftCurrentIndex = event.currentTarget.dataset.lkey;
+        let currentBlockTitle = leftList[leftCurrentIndex].blockName;
         this.setState({
-            leftCurrentIndex
+            leftCurrentIndex,
+            currentBlockTitle
         })
         let rightScollY = this.state.rightScrollYList[leftCurrentIndex]
         console.log('右侧的top漂移-------------------');
@@ -106,7 +110,7 @@ export default class Menu extends Component {
                         <span className="iconfont icon-xiegang"></span>
                         <span className="iconfont icon-xiegang"></span>
                         <span className="iconfont icon-xiegang"></span>
-                        <p>当季主打</p>
+                        <p>{this.state.currentBlockTitle}</p>
                         <span className="iconfont icon-xiegang"></span>
                         <span className="iconfont icon-xiegang"></span>
                         <span className="iconfont icon-xiegang"></span>
