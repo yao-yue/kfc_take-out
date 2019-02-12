@@ -1,0 +1,696 @@
+let rightList = [
+    {
+        "blockName": "桶",
+        "product": [
+            {
+                "productName": "外送新春金桶",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_521305.jpg"
+            },
+            {
+                "productName": "超级外送全家桶",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_518869.jpg"
+            },
+            {
+                "productName": "外送全家桶",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_518855.jpg"
+            },
+            {
+                "productName": "六味小吃桶",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_521307.jpg"
+            },
+            {
+                "productName": "榴莲蛋挞6只装",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/582_528536.jpg"
+            },
+            {
+                "productName": "咸蛋黄热辣脆皮鸡2块装",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_515023.jpg"
+            },
+            {
+                "productName": "冲绳海盐冰淇淋杯",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/582_526894.jpg"
+            }
+        ]
+    },
+    {
+        "blockName": "桶",
+        "product": [
+            {
+                "productName": "外送新春金桶",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_521305.jpg"
+            },
+            {
+                "productName": "新春堡卷欢享桶",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_521306.jpg"
+            },
+            {
+                "productName": "超级外送全家桶",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_518869.jpg"
+            },
+            {
+                "productName": "外送全家桶",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_518855.jpg"
+            },
+            {
+                "productName": "WOW桶随心配",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_518871.jpg"
+            },
+            {
+                "productName": "六味小吃桶",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_521307.jpg"
+            }
+        ]
+    },
+    {
+        "blockName": "帕尼尼",
+        "product": [
+            {
+                "productName": "芝士培根蛋帕尼尼+咖啡随心换",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_515655.jpg"
+            },
+            {
+                "productName": "芝士猪柳帕尼尼+咖啡随心换",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_516074.jpg"
+            },
+            {
+                "productName": "芝士猪柳蛋帕尼尼+葡式蛋挞+饮品随心换",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/466_305322.jpg"
+            },
+            {
+                "productName": "芝士培根蛋帕尼尼+葡式蛋挞+饮品随心换",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/466_305244.jpg"
+            },
+            {
+                "productName": "芝士培根蛋帕尼尼+薯饼+饮品随心换",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/466_305081.jpg"
+            },
+            {
+                "productName": "芝士猪柳帕尼尼+葡式蛋挞+饮品随心换",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/466_305323.jpg"
+            },
+            {
+                "productName": "芝士猪柳蛋帕尼尼+薯饼+饮品随心换",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/466_305205.jpg"
+            },
+            {
+                "productName": "芝士鸡肉帕尼尼+葡式蛋挞+饮品随心换",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/466_304930.jpg"
+            },
+            {
+                "productName": "芝士鸡肉帕尼尼+薯饼+饮品随心换",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/466_305207.jpg"
+            },
+            {
+                "productName": "芝士猪柳蛋帕尼尼+咖啡随心换",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_514643.jpg"
+            },
+            {
+                "productName": "芝猪柳蛋帕尼尼+豆浆随心换",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/486_337448.jpg"
+            },
+            {
+                "productName": "芝士培根蛋帕尼尼+豆浆随心换",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/535_424796.jpg"
+            },
+            {
+                "productName": "芝士鸡肉帕尼尼+咖啡随心换",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_514383.jpg"
+            },
+            {
+                "productName": "芝士鸡肉帕尼尼+豆浆随心换",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/486_337472.jpg"
+            },
+            {
+                "productName": "芝士猪柳帕尼尼+豆浆随心换",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/535_426584.jpg"
+            },
+            {
+                "productName": "芝士猪柳蛋帕尼尼",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/309_150049.jpg"
+            },
+            {
+                "productName": "芝士培根蛋帕尼尼",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/309_150048.jpg"
+            },
+            {
+                "productName": "芝士猪柳帕尼尼",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/309_150044.jpg"
+            },
+            {
+                "productName": "芝士鸡肉帕尼尼",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/309_150042.jpg"
+            },
+            {
+                "productName": "芝士猪柳帕尼尼+薯饼+饮品随心换",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/466_305206.jpg"
+            }
+        ]
+    },
+    {
+        "blockName": "美味汉堡/卷",
+        "product": [
+            {
+                "productName": "卷堡三人餐",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_497206.jpg"
+            },
+            {
+                "productName": "堡堡双人餐",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_497204.jpg"
+            },
+            {
+                "productName": "卷堡双人餐",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_497205.jpg"
+            },
+            {
+                "productName": "新奥尔良烤鸡腿堡+波纹中薯+饮品随心换",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_497202.jpg"
+            },
+            {
+                "productName": "香辣鸡腿堡+波纹薯条(中)+饮品随心换",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_497201.jpg"
+            },
+            {
+                "productName": "劲脆鸡腿堡+波纹薯条(中)+饮品随心换",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_497203.jpg"
+            },
+            {
+                "productName": "老北京鸡肉卷+波纹薯条(中)+饮品随心换",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_496008.jpg"
+            },
+            {
+                "productName": "鸡肉火腿帕尼尼+波纹中薯+饮品随心换",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_495949.jpg"
+            },
+            {
+                "productName": "新奥尔良烤鸡腿堡",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_497200.jpg"
+            },
+            {
+                "productName": "香辣鸡腿堡",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_497198.jpg"
+            },
+            {
+                "productName": "劲脆鸡腿堡",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_497199.jpg"
+            },
+            {
+                "productName": "老北京鸡肉卷",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_496068.jpg"
+            },
+            {
+                "productName": "鸡肉火腿帕尼尼",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_496565.jpg"
+            }
+        ]
+    },
+    {
+        "blockName": "人气明星餐",
+        "product": [
+            {
+                "productName": "新奥尔良堡香骨鸡餐盒",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/522_401484.jpg"
+            },
+            {
+                "productName": "辣堡热辣香骨鸡餐盒",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/522_401495.jpg"
+            },
+            {
+                "productName": "老北京卷香骨鸡餐盒",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/522_401483.jpg"
+            }
+        ]
+    },
+    {
+        "blockName": "炸鸡啤酒",
+        "product": [
+            {
+                "productName": "十六翅啤酒超级餐",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_518843.jpg"
+            },
+            {
+                "productName": "缤纷小吃啤酒餐",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_518842.jpg"
+            }
+        ]
+    },
+    {
+        "blockName": "K记饭桶",
+        "product": [
+            {
+                "productName": "川辣泡椒鸡块饭+烤翅2块+饮品随心换",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_496243.jpg"
+            },
+            {
+                "productName": "川辣泡椒鸡块饭+原味鸡+饮品随心换",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_496291.jpg"
+            },
+            {
+                "productName": "川辣泡椒鸡块饭",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/512_383136.jpg"
+            },
+            {
+                "productName": "海苔岩烧大鸡腿饭+烤翅2块+饮品随心换",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_497033.jpg"
+            },
+            {
+                "productName": "海苔岩烧大鸡腿饭+原味鸡+饮品随心换",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_496871.jpg"
+            },
+            {
+                "productName": "海苔岩烧大鸡腿饭",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_496825.jpg"
+            }
+        ]
+    },
+    {
+        "blockName": "鸡翅/鸡排",
+        "product": [
+            {
+                "productName": "3块热辣香骨鸡",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_497130.jpg"
+            },
+            {
+                "productName": "香辣鸡翅10块",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_495140.jpg"
+            },
+            {
+                "productName": "新奥尔良烤翅10块",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_504407.jpg"
+            },
+            {
+                "productName": "新奥尔良烤翅2块",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_497113.jpg"
+            },
+            {
+                "productName": "二块香辣鸡翅",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_495256.jpg"
+            },
+            {
+                "productName": "藤椒肯大大鸡排",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_496031.jpg"
+            }
+        ]
+    },
+    {
+        "blockName": "吮指原味鸡",
+        "product": [
+            {
+                "productName": "咸蛋黄热辣脆皮鸡2块装",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_515023.jpg"
+            },
+            {
+                "productName": "脆皮鸡原味鸡双拼",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_515029.jpg"
+            },
+            {
+                "productName": "咸蛋黄热辣脆皮鸡",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_521302.jpg"
+            },
+            {
+                "productName": "(六块)吮指原味鸡",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_494962.jpg"
+            },
+            {
+                "productName": "吮指原味鸡2块+波纹中薯+饮品随心换",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_495806.jpg"
+            },
+            {
+                "productName": "香辣鸡腿堡+原味鸡+饮品随心换",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_497207.jpg"
+            },
+            {
+                "productName": "(一块)吮指原味鸡",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_495053.jpg"
+            }
+        ]
+    },
+    {
+        "blockName": "小食/配餐",
+        "product": [
+            {
+                "productName": "葡式蛋挞经典1只装",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/308_147855.jpg"
+            },
+            {
+                "productName": "香脆薯饼",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/303_144453.jpg"
+            },
+            {
+                "productName": "安心大油条",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/470_312105.jpg"
+            },
+            {
+                "productName": "太阳蛋",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/303_144457.jpg"
+            },
+            {
+                "productName": "藜麦鸡腿沙啦啦餐",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/501_361036.jpg"
+            },
+            {
+                "productName": "鲜蔬沙拉",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/237_93389.jpg"
+            },
+            {
+                "productName": "波纹霸王薯条(大)",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_496965.jpg"
+            },
+            {
+                "productName": "波纹霸王薯条(中)",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_495240.jpg"
+            },
+            {
+                "productName": "黄金鸡块10块装",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_495368.jpg"
+            },
+            {
+                "productName": "黄金鸡块5块装",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_496920.jpg"
+            },
+            {
+                "productName": "劲爆鸡米花",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/347_179291.jpg"
+            },
+            {
+                "productName": "芙蓉荟蔬汤",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_496538.jpg"
+            },
+            {
+                "productName": "香甜粟米棒",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_497135.jpg"
+            },
+            {
+                "productName": "醇香土豆泥",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_495245.jpg"
+            }
+        ]
+    },
+    {
+        "blockName": "甜品/冰淇淋",
+        "product": [
+            {
+                "productName": "冲绳海盐冰淇淋杯",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/582_526894.jpg"
+            },
+            {
+                "productName": "榴莲蛋挞6只装",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/582_528536.jpg"
+            },
+            {
+                "productName": "蛋挞双拼6只装",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/582_528538.jpg"
+            },
+            {
+                "productName": "榴莲蛋挞2只装",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/582_528534.jpg"
+            },
+            {
+                "productName": "蛋挞双拼2只装",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/582_528535.jpg"
+            },
+            {
+                "productName": "榴莲蛋挞",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/582_528533.jpg"
+            },
+            {
+                "productName": "原味圣代(巧克力酱)",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_496533.jpg"
+            },
+            {
+                "productName": "原味圣代(草莓酱)",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_496196.jpg"
+            },
+            {
+                "productName": "华夫礼盒(3巧克力)",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/472_315364.jpg"
+            },
+            {
+                "productName": "华夫礼盒(1原2巧)",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/472_315366.jpg"
+            },
+            {
+                "productName": "华夫礼盒(2原1巧)",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/472_315365.jpg"
+            },
+            {
+                "productName": "华夫礼盒(3原味)",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/472_315363.jpg"
+            },
+            {
+                "productName": "巧克力味华夫",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/470_313643.jpg"
+            },
+            {
+                "productName": "原味华夫",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/470_313642.jpg"
+            },
+            {
+                "productName": "葡式蛋挞(经典)6个",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_496948.jpg"
+            },
+            {
+                "productName": "葡式蛋挞(经典)",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_495789.jpg"
+            },
+            {
+                "productName": "红豆派",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/399_231685.jpg"
+            }
+        ]
+    },
+    {
+        "blockName": "K COFFEE",
+        "product": [
+            {
+                "productName": "12元新品咖啡",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/582_526700.jpg"
+            },
+            {
+                "productName": "10元常规咖啡",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/582_530943.jpg"
+            },
+            {
+                "productName": "玫瑰白巧热摩卡",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_521303.jpg"
+            },
+            {
+                "productName": "特惠咖啡4人组",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_514290.jpg"
+            },
+            {
+                "productName": "美式拿铁小食双人餐",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_514258.jpg"
+            },
+            {
+                "productName": "拿铁小食双人餐",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_515125.jpg"
+            },
+            {
+                "productName": "美式小食双人餐",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_516394.jpg"
+            },
+            {
+                "productName": "明星同款手套套餐",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_514321.jpg"
+            },
+            {
+                "productName": "中杯咖啡小食下午茶",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_514361.jpg"
+            },
+            {
+                "productName": "喵咪拿铁(大)2杯",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_516131.jpg"
+            },
+            {
+                "productName": "咖啡小食随心配",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_515500.jpg"
+            },
+            {
+                "productName": "比利时巧克力摩卡",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_515813.jpg"
+            },
+            {
+                "productName": "太妃芝士风味拿铁",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_515650.jpg"
+            },
+            {
+                "productName": "喵咪咖啡",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_514287.jpg"
+            },
+            {
+                "productName": "榛果风味拿铁",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_514946.jpg"
+            },
+            {
+                "productName": "香草风味拿铁",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_516318.jpg"
+            },
+            {
+                "productName": "拿铁",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_514256.jpg"
+            },
+            {
+                "productName": "美式",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_514163.jpg"
+            },
+            {
+                "productName": "榛果风味冰拿铁",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_516299.jpg"
+            },
+            {
+                "productName": "香草风味冰拿铁",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_516209.jpg"
+            },
+            {
+                "productName": "冰拿铁",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_515659.jpg"
+            },
+            {
+                "productName": "冰美式",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_515796.jpg"
+            }
+        ]
+    },
+    {
+        "blockName": "缤纷饮料",
+        "product": [
+            {
+                "productName": "恋橙乌龙茶(热)",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/533_422894.jpg"
+            },
+            {
+                "productName": "纯纯玉米饮",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_495961.jpg"
+            },
+            {
+                "productName": "红豆酒酿饮(热)",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/533_422895.jpg"
+            },
+            {
+                "productName": "九珍果汁饮料",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_495125.jpg"
+            },
+            {
+                "productName": "热柠檬红茶",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_496055.jpg"
+            },
+            {
+                "productName": "香醇奶茶(热)",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_495872.jpg"
+            },
+            {
+                "productName": "1.25升装百事可乐",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_496551.jpg"
+            },
+            {
+                "productName": "醇豆浆甜(冰)",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/470_313620.jpg"
+            },
+            {
+                "productName": "醇豆浆甜(热)",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/403_234123.jpg"
+            }
+        ]
+    },
+    {
+        "blockName": "童书套餐",
+        "product": [
+            {
+                "productName": "新春英雄家庭桶",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_521262.jpg"
+            },
+            {
+                "productName": "新春英雄亲子桶",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_515046.jpg"
+            },
+            {
+                "productName": "新春英雄儿童餐",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_515099.jpg"
+            },
+            {
+                "productName": "童书套餐-帕尼尼",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_518845.jpg"
+            },
+            {
+                "productName": "童书套餐-黄金鸡块",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/577_518847.jpg"
+            }
+        ]
+    },
+    {
+        "blockName": "欢乐送下午茶",
+        "product": [
+            {
+                "productName": "冲绳海盐冰淇淋杯",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/582_526908.jpg"
+            },
+            {
+                "productName": "下午茶随心配双人餐",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_496267.jpg"
+            },
+            {
+                "productName": "下午茶随心配单人餐",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_496264.jpg"
+            },
+            {
+                "productName": "聚享大方盒辣翅午茶",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_496448.jpg"
+            },
+            {
+                "productName": "闲聊小吃6宝",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_495410.jpg"
+            },
+            {
+                "productName": "下午茶榴莲蛋挞6只装",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/582_528539.jpg"
+            },
+            {
+                "productName": "下午茶蛋挞双拼6只装",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/582_528540.jpg"
+            },
+            {
+                "productName": "下午茶葡式蛋挞6只装",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_504509.jpg"
+            },
+            {
+                "productName": "下午茶华夫礼盒",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/546_445569.jpg"
+            },
+            {
+                "productName": "恋橙乌龙茶(热)",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/546_445565.jpg"
+            },
+            {
+                "productName": "纯纯玉米饮",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_494963.jpg"
+            },
+            {
+                "productName": "红豆酒酿饮(热)",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/546_445566.jpg"
+            },
+            {
+                "productName": "香醇奶茶(热)",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_495324.jpg"
+            },
+            {
+                "productName": "九珍果汁饮料",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_495821.jpg"
+            },
+            {
+                "productName": "热柠檬红茶",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_495546.jpg"
+            },
+            {
+                "productName": "原味圣代(巧克力酱)",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_495637.jpg"
+            },
+            {
+                "productName": "原味圣代(草莓酱)",
+                "productImg": "https://resm.4008823823.com.cn/kfcmwos/img//S/569_495480.jpg"
+            }
+        ]
+    }
+]
+
+
+export default rightList;

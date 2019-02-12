@@ -1,14 +1,21 @@
 import React, { Component } from 'react'
 import './Product.scss'
 import { Icon } from 'antd'
+import LazyLoad from "react-lazyload";
 
 export default class Product extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {}
+  }
   render() {
     return (
       <div className="product-wrapper">
-        <img src="https://resm.4008823823.com.cn/kfcmwos/img//S/577_521305.jpg" alt="静态资源"/>
+        <LazyLoad height={100}>
+          <img src={this.props.productSrc} alt={this.props.productName}/>
+        </LazyLoad>
         <div className="pruduct-desc">
-        <p>荷包满满</p>
+        <p>{this.props.productName}</p>
         <div className="K-money"><p>￥</p><span>138.0</span></div>
         <div className="handle-btn"><Icon type="plus" /></div>
         </div>

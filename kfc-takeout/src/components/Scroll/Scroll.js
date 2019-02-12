@@ -20,6 +20,7 @@ class Scroll extends React.Component {
       this.bScroll = new BScroll(this.scrollViewRef.current, {
         scrollX: this.props.direction === "horizontal",
         scrollY: this.props.direction === "vertical",
+        bounce: false,
         // 实时派发scroll事件
         probeType: 3,
         click: this.props.click
@@ -31,8 +32,8 @@ class Scroll extends React.Component {
         });
       }
       if(this.props.onClick) {
-          this.scrollTo();
-          // this.bScroll.scrollTo(0,-200,300,'swipe')
+          // this.scrollTo();
+          // this.bScroll.scrollTo(0,-600,300,'swipe')
       }
 
     }
@@ -51,8 +52,6 @@ class Scroll extends React.Component {
       console.log('调用了scrollTo');
       console.log(scrollY)
       this.bScroll.scrollTo(0, -scrollY, 300, 'swipe')
-      // console.log(this.props.children.props.children[11])
-      // this.bScroll.scrollToElement(this.props.children[11],300,0,0,'swipe')
     }
   }
   render() {
