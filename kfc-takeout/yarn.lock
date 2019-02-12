@@ -1746,7 +1746,7 @@ babel-register@^6.26.0:
     mkdirp "^0.5.1"
     source-map-support "^0.4.15"
 
-babel-runtime@6.x, babel-runtime@^6.22.0, babel-runtime@^6.23.0, babel-runtime@^6.26.0:
+babel-runtime@6.x, babel-runtime@^6.0.0, babel-runtime@^6.22.0, babel-runtime@^6.23.0, babel-runtime@^6.26.0:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
   integrity sha1-llxwWGaOgrVde/4E/yM3vItWR/4=
@@ -1829,6 +1829,13 @@ bcrypt-pbkdf@^1.0.0:
   integrity sha1-pDAdOJtqQ/m2f/PKEaP2Y342Dp4=
   dependencies:
     tweetnacl "^0.14.3"
+
+better-scroll@^1.14.1:
+  version "1.14.1"
+  resolved "http://registry.npm.taobao.org/better-scroll/download/better-scroll-1.14.1.tgz#65109c502a750d49543ffbb4208f421b33705c2f"
+  integrity sha1-ZRCcUCp1DUlUP/u0II9CGzNwXC8=
+  dependencies:
+    babel-runtime "^6.0.0"
 
 bfj@6.1.1:
   version "6.1.1"
@@ -8718,6 +8725,11 @@ react-lazy-load@^3.0.13:
     lodash.debounce "^4.0.0"
     lodash.throttle "^4.0.0"
     prop-types "^15.5.8"
+
+react-lazyload@^2.5.0:
+  version "2.5.0"
+  resolved "http://registry.npm.taobao.org/react-lazyload/download/react-lazyload-2.5.0.tgz#7ed20bf0408dc684c10e808060e51d904cc0ab8d"
+  integrity sha1-ftIL8ECNxoTBDoCAYOUdkEzAq40=
 
 react-lifecycles-compat@^3.0.2, react-lifecycles-compat@^3.0.4:
   version "3.0.4"
