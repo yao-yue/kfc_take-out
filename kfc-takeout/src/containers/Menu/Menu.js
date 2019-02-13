@@ -11,7 +11,7 @@ import leftList from './TempData';
 import rightList from './TempData3'
 
 export default class Menu extends Component {
-    
+
     constructor() {
         super()
         this.leftRef = React.createRef();
@@ -20,12 +20,12 @@ export default class Menu extends Component {
         this.state = {
             loading: true,
             blockTitleList: [],
-            leftCurrentIndex: 0, 
+            leftCurrentIndex: 0,
             refreshScroll: false,
             currentBlockTitle: null,
-            leftScrollYList: []
+            leftScrollYList: [],
+            rightScrollYList: [],
         }
-
     }
     componentWillMount() {
         let windowHeight = document.body.clientHeight + 5;
@@ -35,7 +35,8 @@ export default class Menu extends Component {
         let currentBlockTitle = blockTitleList[0]
         this.setState({
             windowHeight,
-            currentBlockTitle
+            currentBlockTitle,
+            blockTitleList
         })
     }
     componentDidMount() {
@@ -52,59 +53,67 @@ export default class Menu extends Component {
         let initRightTop = this.rightRef.current.childNodes[0].getBoundingClientRect().top
         console.log(initRightTop)
         for (let item of this.rightRef.current.childNodes) {
-                rightScrollYList.push(item.getBoundingClientRect().top - initRightTop + this.BLOCKTITLEHEIGHT)
+            rightScrollYList.push(item.getBoundingClientRect().top - initRightTop + this.BLOCKTITLEHEIGHT)
         }
         console.log('获取的右侧导航栏信息(处理后)---------')
         rightScrollYList = rightScrollYList.slice(0, -1)
         rightScrollYList[0] = rightScrollYList[0] - this.BLOCKTITLEHEIGHT;
         console.log(rightScrollYList)
-        this.setState({ leftScrollYList,rightScrollYList})
+        this.setState({ leftScrollYList, rightScrollYList })
     }
-    // 写一个函数 监听右侧滚轮信息，如果数值达到就改变leftCurrentIndex 
-    onListenRightTop(lTop) {
-        let leftScrollYList = this.state;
-        let resKey = 0;
-        for(let i = 0; i < leftScrollYList.length; i++) {
-            if(lTop > leftScrollYList[i] && lTop < leftScrollYList[i+1]) {
-                resKey = i;
+    // 监听右侧滚轮 如果数值达到就改变leftCurrentIndex 
+    onListenRightTop() {
+        if(this.rightChildRef.state.disableRightListen) {
+            return;
+        }else {
+            let currentIndex = this.rightChildRef.state.currentIndex;
+            if (currentIndex !== this.state.leftCurrentIndex) {
+                this.setState({ leftCurrentIndex: currentIndex }, () => {
+                    this._syncBlockTitle();
+                    this._shiftLeft()
+                })
             }
         }
-        console.log('当前获得的结果key')
-        console.log(resKey)
+       
     }
 
     // 让右侧商品标题与currentIndex同步
     _syncBlockTitle() {
-        let {leftCurrentIndex, blockTitleList, currentBlockTitle} = this.state;
-        if(blockTitleList[leftCurrentIndex] !== currentBlockTitle) {
-            this.setState({currentBlockTitle: blockTitleList[leftCurrentIndex]})
+        let { leftCurrentIndex, blockTitleList, currentBlockTitle } = this.state;
+        if (blockTitleList[leftCurrentIndex] !== currentBlockTitle) {
+            console.log(this.state.blockTitleList)
+            this.setState({ currentBlockTitle: blockTitleList[leftCurrentIndex] })
         }
     }
     _shiftLeft() {
         let length = this.leftRef.current.childNodes.length;
         let lastBottom = this.leftRef.current.childNodes[length - 1].getBoundingClientRect().bottom;
+        let currentOffsetTop = this.leftRef.current.childNodes[this.state.leftCurrentIndex].getBoundingClientRect().top;
+        console.log('当前active元素的Top偏移移---------')
+        console.log(currentOffsetTop);
         let leftScollY = this.state.leftScrollYList[this.state.leftCurrentIndex]
-        if (lastBottom > this.state.windowHeight) {
-            this.leftChildRef.scrollTo(leftScollY);   
+        if (lastBottom > this.state.windowHeight || currentOffsetTop < 300) {
+            this.leftChildRef.scrollTo(leftScollY);
         }
     }
     _shiftRight() {
         console.log('右侧的top漂移-------------------');
         let rightScollY = this.state.rightScrollYList[this.state.leftCurrentIndex]
-        console.log(rightScollY)
-        this.rightChildRef.scrollTo(rightScollY) 
+        this.rightChildRef.scrollTo(rightScollY)
     }
     clickLeft(event) {
         //重构此方法  他的作用分离为只是获得当前元素的key，偏移等方法分离出来
         event.preventDefault()
         let leftCurrentIndex = event.currentTarget.dataset.lkey;
         let currentBlockTitle = leftList[leftCurrentIndex].blockName;
-        this.setState({
-            leftCurrentIndex,
-            currentBlockTitle
-        },() => {
-            this._shiftLeft();
-            this._shiftRight();
+        this.rightChildRef.setState({disableRightListen: true},() => {
+            this.setState({
+                leftCurrentIndex,
+                currentBlockTitle,
+            }, () => {
+                this._shiftLeft();
+                this._shiftRight();
+            })
         })
     }
     render() {
@@ -112,14 +121,25 @@ export default class Menu extends Component {
             <div className='menu-wrapper'>
                 <Scroll refresh={this.state.refreshScroll}
                     onTestRef={(el) => this.leftChildRef = el}
-                    onClick={{}}
-                    onListenRightTop
-                    onScroll={() => { console.log('左侧导航栏调用滚动，使用forceCheck()配合懒加载'); forceCheck(); }}>
+                    onScroll={() => {
+                    //左侧导航栏调用滚动，使用forceCheck()配合懒加载
+                    forceCheck(); 
+                    }}>
                     <div className="left-nav" ref={this.leftRef}>
                         {
                             leftList.map((item, index) => {
                                 return (
-                                    <li className={this.state.leftCurrentIndex!==`${index}`?'':'active-nav'} key={index} data-lkey={index}
+                                    this.state.leftCurrentIndex ? 
+                                    <li className={this.state.leftCurrentIndex.toString() === index.toString() ? 'active-nav' : 'unactive-nav'} key={index} data-lkey={index}
+                                        onClick={(e) => { this.clickLeft(e) }}>
+                                        <LazyLoad height={100}>
+                                            <img src={item.blockSrc} alt={item.blockName} />
+                                        </LazyLoad>
+                                        <p>{item.blockName}</p>
+                                       
+                                    </li>
+                                     : 
+                                    <li className={index===0 ? 'active-nav' : ''} key={index} data-lkey={index}
                                         onClick={(e) => { this.clickLeft(e) }}>
                                         <LazyLoad height={100}>
                                             <img src={item.blockSrc} alt={item.blockName} />
@@ -145,14 +165,18 @@ export default class Menu extends Component {
                     <Scroll refresh={this.state.refreshScroll}
                         onTestRef={(el) => this.rightChildRef = el}
                         onClick={{}}
-                        onScroll={() => { console.log('右侧调用滚动函数，使用forceCheck()配合懒加载'); forceCheck(); }}>
-                        <div className="product-list" ref={this.rightRef}>
+                        onScroll={() => {
+                            //右侧调用滚动函数，使用forceCheck()配合懒加载
+                            forceCheck();
+                            this.onListenRightTop()  
+                        }}>
+                        <div className="product-list" ref={this.rightRef} rightScrollYList={this.state.rightScrollYList}>
                             {
                                 rightList.map((item, index) => {
                                     return (
                                         <div className="product-block" key={index} data-rkey={index}
-                                        onClick={() => {console.log('点击有效')}}>
-                                            {item.blockName? <div className="block-title">{item.blockName}</div>: ''}
+                                            onClick={() => { console.log('点击有效') }}>
+                                            {item.blockName ? <div className="block-title">{item.blockName}</div> : ''}
                                             {item.product.map((el, idx) => {
                                                 return <Product productName={el.productName} productSrc={el.productImg} key={idx} />
                                             })}

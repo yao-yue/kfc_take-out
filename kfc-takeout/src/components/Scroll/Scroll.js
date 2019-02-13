@@ -8,6 +8,12 @@ class Scroll extends React.Component {
     super(props);
     this.scrollViewRef = React.createRef();
     this.props.onTestRef(this);
+    this.BLOCKTITLEHEIGHT = 60;
+    this.state = {
+      rightScrollYList: [],
+      currentIndex: 0,
+      disableRightListen: false,
+    }
   }
   componentDidUpdate() {
     // 组件更新后，如果实例化了better-scroll并且需要刷新就调用refresh()函数
@@ -15,7 +21,17 @@ class Scroll extends React.Component {
       this.bScroll.refresh();
     }
   }
+  componentWillMount() {
+
+  }
   componentDidMount() {
+    //获取右侧导航栏的top信息
+    if (this.props.children.props.className === 'product-list') {
+    this.rTimer =  setTimeout(() => {
+        let rightScrollYList = this.props.children.props.rightScrollYList;
+        this.setState({rightScrollYList})
+      }, 500)
+    }
     if (!this.bScroll) {
       this.bScroll = new BScroll(this.scrollViewRef.current, {
         scrollX: this.props.direction === "horizontal",
@@ -25,16 +41,29 @@ class Scroll extends React.Component {
         probeType: 3,
         click: this.props.click
       });
-      
+
       if (this.props.onScroll) {
         this.bScroll.on("scroll", (scroll) => {
           this.props.onScroll(scroll);
-          console.log(scroll)
+          let scrollY = -scroll.y
+          let currentIndex = this.state.currentIndex
+          if(this.state.rightScrollYList) {
+            for (let i = 0; i < this.state.rightScrollYList.length; i++) {
+              if(scrollY>this.state.rightScrollYList[i] && (this.state.rightScrollYList[i+1] ? scrollY < this.state.rightScrollYList[i+1] : true)) {
+                if(i !== currentIndex) {
+                  this.setState({currentIndex: i})
+                  console.log(this.state.currentIndex)
+                }
+              }
+            }
+          }
         });
-      }
-      if(this.props.onClick) {
-          // this.scrollTo();
-          // this.bScroll.scrollTo(0,-600,300,'swipe')
+        this.bScroll.on("scrollEnd", (scroll) => {
+          console.log('滚动结束')
+          this.setState({disableRightListen: false},() => {
+            console.log(this.state.disableRightListen)
+          })
+        })
       }
 
     }
@@ -42,6 +71,7 @@ class Scroll extends React.Component {
   componentWillUnmount() {
     this.bScroll.off("scroll");
     this.bScroll = null;
+    clearTimeout(this.rTimer)
   }
   refresh() {
     if (this.bScroll) {
@@ -49,10 +79,8 @@ class Scroll extends React.Component {
     }
   }
   scrollTo(scrollY) {
-    if(this.bScroll) {
-      console.log('调用了scrollTo');
-      console.log(scrollY)
-      this.bScroll.scrollTo(0, -scrollY, 300, 'swipe')
+    if (this.bScroll) {
+      this.bScroll.scrollTo(0, -scrollY, 200, 'swipe')
     }
   }
   render() {
@@ -65,13 +93,12 @@ class Scroll extends React.Component {
   }
 }
 
+//Scroll 组件不支持外部写入自定义数据
 Scroll.defaultProps = {
   direction: "vertical",
   click: true,
   refresh: false,
   onScroll: null,
-  onClick: null,
-  goToY: null,
   onTestRef: null,
 };
 
@@ -82,9 +109,7 @@ Scroll.propTypes = {
   // 是否刷新
   refresh: PropTypes.bool,
   onScroll: PropTypes.func,
-  onClick: PropTypes.object,
-  goToY: PropTypes.number,
-  onTestRef: PropTypes.func
+  onTestRef: PropTypes.func,
 };
 
 export default Scroll
