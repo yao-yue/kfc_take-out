@@ -19,16 +19,20 @@ export default class Menu extends Component {
         this.BLOCKTITLEHEIGHT = 60;
         this.state = {
             loading: true,
-            // rankingList: [],
+            blockTitleList: [],
             leftCurrentIndex: 0, 
             refreshScroll: false,
             currentBlockTitle: null,
+            leftScrollYList: []
         }
 
     }
     componentWillMount() {
         let windowHeight = document.body.clientHeight + 5;
-        let currentBlockTitle = leftList[0].blockName
+        let blockTitleList = leftList.map(item => {
+            return item.blockName
+        })
+        let currentBlockTitle = blockTitleList[0]
         this.setState({
             windowHeight,
             currentBlockTitle
@@ -56,31 +60,52 @@ export default class Menu extends Component {
         console.log(rightScrollYList)
         this.setState({ leftScrollYList,rightScrollYList})
     }
-    clickLeft(event) {
-        event.preventDefault()
+    // 写一个函数 监听右侧滚轮信息，如果数值达到就改变leftCurrentIndex 
+    onListenRightTop(lTop) {
+        let leftScrollYList = this.state;
+        let resKey = 0;
+        for(let i = 0; i < leftScrollYList.length; i++) {
+            if(lTop > leftScrollYList[i] && lTop < leftScrollYList[i+1]) {
+                resKey = i;
+            }
+        }
+        console.log('当前获得的结果key')
+        console.log(resKey)
+    }
+
+    // 让右侧商品标题与currentIndex同步
+    _syncBlockTitle() {
+        let {leftCurrentIndex, blockTitleList, currentBlockTitle} = this.state;
+        if(blockTitleList[leftCurrentIndex] !== currentBlockTitle) {
+            this.setState({currentBlockTitle: blockTitleList[leftCurrentIndex]})
+        }
+    }
+    _shiftLeft() {
         let length = this.leftRef.current.childNodes.length;
         let lastBottom = this.leftRef.current.childNodes[length - 1].getBoundingClientRect().bottom;
-        // console.log(lastBottom)
-        // console.log(this.state.windowHeight)
-        let leftScollY = this.state.leftScrollYList[event.currentTarget.dataset.lkey]
+        let leftScollY = this.state.leftScrollYList[this.state.leftCurrentIndex]
         if (lastBottom > this.state.windowHeight) {
-            this.leftChildRef.scrollTo(leftScollY);
-            
+            this.leftChildRef.scrollTo(leftScollY);   
         }
-        console.log('----------')
-        console.log(event.currentTarget.dataset.lkey);
+    }
+    _shiftRight() {
+        console.log('右侧的top漂移-------------------');
+        let rightScollY = this.state.rightScrollYList[this.state.leftCurrentIndex]
+        console.log(rightScollY)
+        this.rightChildRef.scrollTo(rightScollY) 
+    }
+    clickLeft(event) {
+        //重构此方法  他的作用分离为只是获得当前元素的key，偏移等方法分离出来
+        event.preventDefault()
         let leftCurrentIndex = event.currentTarget.dataset.lkey;
         let currentBlockTitle = leftList[leftCurrentIndex].blockName;
         this.setState({
             leftCurrentIndex,
             currentBlockTitle
+        },() => {
+            this._shiftLeft();
+            this._shiftRight();
         })
-        let rightScollY = this.state.rightScrollYList[leftCurrentIndex]
-        console.log('右侧的top漂移-------------------');
-        // console.log(this.state.rightScrollYList)
-        console.log(rightScollY)
-        this.rightChildRef.scrollTo(rightScollY)
-        console.log(leftCurrentIndex)
     }
     render() {
         return (
@@ -88,6 +113,7 @@ export default class Menu extends Component {
                 <Scroll refresh={this.state.refreshScroll}
                     onTestRef={(el) => this.leftChildRef = el}
                     onClick={{}}
+                    onListenRightTop
                     onScroll={() => { console.log('左侧导航栏调用滚动，使用forceCheck()配合懒加载'); forceCheck(); }}>
                     <div className="left-nav" ref={this.leftRef}>
                         {
