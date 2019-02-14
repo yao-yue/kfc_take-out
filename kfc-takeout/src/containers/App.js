@@ -3,6 +3,7 @@ import "./app.scss"
 import Swiper from '../components/Swiper/Swiper'
 import Banner from '../components/Banner/Banner'
 import Menu from '../containers/Menu/Menu'
+// import ProgressDot from '../components/ProgressDot/ProgressDot'
 
 
 
@@ -16,6 +17,7 @@ class App extends React.Component {
     return (
      <div className="app-wrapper">
      <Swiper />
+     
      <Banner />
      <Menu style={{height: '100%'}}/>
      </div>
